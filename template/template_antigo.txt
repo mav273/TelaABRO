@@ -1,0 +1,224 @@
+anamnesetemplate ="""
+<div style="background-color:#37302b;padding:10px;border-radius:5px;margin:10px;box-shadow: 5px 5px 5px rgba(0,0,0,0.5);">
+<h4 style="color:#f9b03d;text-align:center;">Anamnese:  {}</h1>
+<br/>
+<br/>
+<p style="color:#f9b03d;text-align:justify">Qual O Motivo Da Consulta ?:<br/>{}</p>
+<p style="color:#f9b03d;text-align:justify">Está Fazendo Algum Tratamento Médico ou Tem Algum Problema de Saúde ?:<br/> {}</p>
+<p style="color:#f9b03d;text-align:justify">Está Tomando Algum Medicamento?:<br/> {}</p>
+<p style="color:#f9b03d;text-align:justify"> Quais Medicamentos ?:<br/> {}</p>
+<p style="color:#f9b03d;text-align:justify"> Tem Alergia a Algum Medicamento ?:<br/> {}</p>
+<p style="color:#f9b03d;text-align:justify">Apresenta Alergia a Quais Medicamentos ?:<br/> {}</p> 
+<p style="color:#f9b03d;text-align:justify">Teve Alguma Reação a Anestesia Local ?:<br/> {}</p>  
+<p style="color:#f9b03d;text-align:justify">Quando Foi o Seu Ultimo Tratamento Odontológico ?:<br/> {}</p>  
+<p style="color:#f9b03d;text-align:justify">Já Realizou Tratamento de Canal ? Prótese ? Implante ? Perdeu Algum Dente ?:<br/> {}</p>  
+<p style="color:#f9b03d;text-align:justify">Sua Gengiva Sangra Com Frequência ?:<br/> {}</p>  
+<p style="color:#f9b03d;text-align:justify">Você Fuma ?:<br/> {}</p>  
+<p style="color:#f9b03d;text-align:justify">Quando Você se Corta, Sangra Muito ?:<br/> {}</p>  
+<p style="color:#f9b03d;text-align:justify">Sente Dores de Dente ? Cabeça ? Dores na Face ? Ouvido ou Articulações ?:<br/> {}</p>  
+<p style="color:#f9b03d;text-align:justify">Teve Algum Desmaio, Ataques Nervoso, Epilepsia ou Convulsões ?:<br/> {}</p>  
+<p style="color:#f9b03d;text-align:justify">Pode Estar Gravida ?:<br/> {}</p>  
+<p style="color:#f9b03d;text-align:justify">Já Realizou Algum Procedimento Estético Facial ? Botox? Preenchimento com Ac. Hialurônico ou PMA ?:<br/> {}</p>  
+
+</div>
+"""
+
+        cadastro= pd.read_sql("select * from cadastro ",cnxn)
+        st.write(cadastro)
+                
+        anamnese1= pd.read_sql("select * from anamnese1 ",cnxn)
+        st.write(anamnese1)
+
+        sociais1= pd.read_sql("select * from sociais ",cnxn)
+        st.write(sociais1)
+       
+        
+            st.markdown(anamnesetemplate.format(nome4,b_motivo,b_tratamento,b_medicamento,b_qmedicamento,b_alergia,b_qalergia,b_anestisia,b_ultimo,b_canal,b_gengiva,b_fuma,b_sangra,b_dor,b_desmaio,b_gravida,b_botox),unsafe_allow_html=True)
+            
+
+
+            st.markdown(anamnesetemp1.format(b_motivo),unsafe_allow_html=True)
+            st.markdown(anamnesetemp2.format(b_tratamento),unsafe_allow_html=True)
+            st.markdown(anamnesetemp3.format(b_medicamento),unsafe_allow_html=True)
+            st.markdown(anamnesetemp4.format(b_qmedicamento),unsafe_allow_html=True)
+            st.markdown(anamnesetemp5.format(b_tratamento),unsafe_allow_html=True)
+            st.markdown(anamnesetemp6.format(b_tratamento),unsafe_allow_html=True)
+            st.markdown(anamnesetemp7.format(b_tratamento),unsafe_allow_html=True)
+            st.markdown(anamnesetemp8.format(b_tratamento),unsafe_allow_html=True)
+            st.markdown(anamnesetemp9.format(b_tratamento),unsafe_allow_html=True)
+            st.markdown(anamnesetemp10.format(b_tratamento),unsafe_allow_html=True)
+            st.markdown(anamnesetemp.format(b_tratamento),unsafe_allow_html=True)
+        
+
+#sociais________________________________________________________
+sociaistemp0 ="""
+<div style="background-color:#241c1c;padding:10px;border-radius:5px;margin:10px;box-shadow: 5px 5px 5px rgba(0,0,0,0.5);">
+<h4 style="color:#f9b03d;text-align:center;">Sociais: {}</h1>
+
+</div>
+"""
+sociaistemp1 ="""
+<div style="background-color:#37302b;padding:10px;border-radius:5px;margin:10px;box-shadow: 5px 5px 5px rgba(0,0,0,0.5);">
+<h4 style="color:#f9b03d;text-align:center;">Qual Sua Profissão ?</h1>
+<br/>
+<br/>
+<p style="color:#f9b03d;text-align:center;font-family: monospace;"><br/>{}</p>
+</div>
+"""
+sociaistemp2 ="""
+<div style="background-color:#37302b;padding:10px;border-radius:5px;margin:10px;box-shadow: 5px 5px 5px rgba(0,0,0,0.5);">
+<h4 style="color:#f9b03d;text-align:center;">Gosta de Futebol ?</h1>
+<br/>
+<br/>
+<p style="color:#f9b03d;text-align:center;font-family: monospace;"><br/>{}</p>
+</div>
+"""
+sociaistemp3 ="""
+<div style="background-color:#37302b;padding:10px;border-radius:5px;margin:10px;box-shadow: 5px 5px 5px rgba(0,0,0,0.5);">
+<h4 style="color:#f9b03d;text-align:center;">Para Quais Times Você Torce ?</h1>
+<br/>
+<br/>
+<p style="color:#f9b03d;text-align:center;font-family: monospace;"><br/>{}</p>
+</div>
+"""
+sociaistemp4 ="""
+<div style="background-color:#37302b;padding:10px;border-radius:5px;margin:10px;box-shadow: 5px 5px 5px rgba(0,0,0,0.5);">
+<h4 style="color:#f9b03d;text-align:center;">Tem Algum Animal De Estimação ?</h1>
+<br/>
+<br/>
+<p style="color:#f9b03d;text-align:center;font-family: monospace;"><br/>{}</p>
+</div>
+"""
+sociaistemp5 ="""
+<div style="background-color:#37302b;padding:10px;border-radius:5px;margin:10px;box-shadow: 5px 5px 5px rgba(0,0,0,0.5);">
+<h4 style="color:#f9b03d;text-align:center;">Qual ?</h1>
+<br/>
+<br/>
+<p style="color:#f9b03d;text-align:center;font-family: monospace;"><br/>{}</p>
+</div>
+"""
+sociaistemp6 ="""
+<div style="background-color:#37302b;padding:10px;border-radius:5px;margin:10px;box-shadow: 5px 5px 5px rgba(0,0,0,0.5);">
+<h4 style="color:#f9b03d;text-align:center;">Tem Filhos ?</h1>
+<br/>
+<br/>
+<p style="color:#f9b03d;text-align:center;font-family: monospace;"><br/>{}</p>
+</div>
+"""
+sociaistemp7 ="""
+<div style="background-color:#37302b;padding:10px;border-radius:5px;margin:10px;box-shadow: 5px 5px 5px rgba(0,0,0,0.5);">
+<h4 style="color:#f9b03d;text-align:center;">Como se Chamam ?</h1>
+<br/>
+<br/>
+<p style="color:#f9b03d;text-align:center;font-family: monospace;"><br/>{}</p>
+</div>
+"""
+sociaistemp8 ="""
+<div style="background-color:#37302b;padding:10px;border-radius:5px;margin:10px;box-shadow: 5px 5px 5px rgba(0,0,0,0.5);">
+<h4 style="color:#f9b03d;text-align:center;">Tem Medo De Dentista ?</h1>
+<br/>
+<br/>
+<p style="color:#f9b03d;text-align:center;font-family: monospace;"><br/>{}</p>
+</div>
+"""
+sociaistemp9 ="""
+<div style="background-color:#37302b;padding:10px;border-radius:5px;margin:10px;box-shadow: 5px 5px 5px rgba(0,0,0,0.5);">
+<h4 style="color:#f9b03d;text-align:center;">Esta Satisfeito Com Sua Estética Facil e de Sorriso ?</h1>
+<br/>
+<br/>
+<p style="color:#f9b03d;text-align:center;font-family: monospace;"><br/>{}</p>
+</div>
+"""
+sociaistemp10 ="""
+<div style="background-color:#37302b;padding:10px;border-radius:5px;margin:10px;box-shadow: 5px 5px 5px rgba(0,0,0,0.5);">
+<h4 style="color:#f9b03d;text-align:center;">Tem Facebook ?</h1>
+<br/>
+<br/>
+<p style="color:#f9b03d;text-align:center;font-family: monospace;"><br/>{}</p>
+</div>
+"""
+sociaistemp11 ="""
+<div style="background-color:#37302b;padding:10px;border-radius:5px;margin:10px;box-shadow: 5px 5px 5px rgba(0,0,0,0.5);">
+<h4 style="color:#f9b03d;text-align:center;">Tem Instagram ?</h1>
+<br/>
+<br/>
+<p style="color:#f9b03d;text-align:center;font-family: monospace;"><br/>{}</p>
+</div>
+"""
+sociaistemp12 ="""
+<div style="background-color:#37302b;padding:10px;border-radius:5px;margin:10px;box-shadow: 5px 5px 5px rgba(0,0,0,0.5);">
+<h4 style="color:#f9b03d;text-align:center;">Qual ?</h1>
+<br/>
+<br/>
+<p style="color:#f9b03d;text-align:center;font-family: monospace;"><br/>{}</p>
+</div>
+"""
+sociaistemp13 ="""
+<div style="background-color:#37302b;padding:10px;border-radius:5px;margin:10px;box-shadow: 5px 5px 5px rgba(0,0,0,0.5);">
+<h4 style="color:#f9b03d;text-align:center;">Tem Algum Hobby ?</h1>
+<br/>
+<br/>
+<p style="color:#f9b03d;text-align:center;font-family: monospace;"><br/>{}</p>
+</div>
+"""
+sociaistemp14 ="""
+<div style="background-color:#37302b;padding:10px;border-radius:5px;margin:10px;box-shadow: 5px 5px 5px rgba(0,0,0,0.5);">
+<h4 style="color:#f9b03d;text-align:center;">Quais ?</h1>
+<br/>
+<br/>
+<p style="color:#f9b03d;text-align:center;font-family: monospace;"><br/>{}</p>
+</div>
+"""
+sociaistemp15 ="""
+<div style="background-color:#37302b;padding:10px;border-radius:5px;margin:10px;box-shadow: 5px 5px 5px rgba(0,0,0,0.5);">
+<h4 style="color:#f9b03d;text-align:center;">Gosta De Musica Ambiente ?</h1>
+<br/>
+<br/>
+<p style="color:#f9b03d;text-align:center;font-family: monospace;"><br/>{}</p>
+</div>
+"""
+sociaistemp16 ="""
+<div style="background-color:#37302b;padding:10px;border-radius:5px;margin:10px;box-shadow: 5px 5px 5px rgba(0,0,0,0.5);">
+<h4 style="color:#f9b03d;text-align:center;">Qual Gênero/Ritmo Gosta de Ouvir ?</h1>
+<br/>
+<br/>
+<p style="color:#f9b03d;text-align:center;font-family: monospace;"><br/>{}</p>
+</div>
+"""
+sociaistemp17 ="""
+<div style="background-color:#37302b;padding:10px;border-radius:5px;margin:10px;box-shadow: 5px 5px 5px rgba(0,0,0,0.5);">
+<h4 style="color:#f9b03d;text-align:center;">Qual Tipo De Programa De Televisão Gosta De Assistir ?</h1>
+<br/>
+<br/>
+<p style="color:#f9b03d;text-align:center;font-family: monospace;"><br/>{}</p>
+</div>
+"""
+sociaistemp18 ="""
+<div style="background-color:#37302b;padding:10px;border-radius:5px;margin:10px;box-shadow: 5px 5px 5px rgba(0,0,0,0.5);">
+<h4 style="color:#f9b03d;text-align:center;">Qual Tipo De Programa De Televisão Gosta De Assistir ?</h1>
+<br/>
+<br/>
+<p style="color:#f9b03d;text-align:center;font-family: monospace;"><br/>{}</p>
+</div>
+"""
+
+if choice == "Consultar":
+        st.subheader("Consulte os dados")
+        
+        
+        t_nomes = [i[0] for i in view_all_titles()]
+        nome4 = st.selectbox("Nome",t_nomes)
+        escolha = cadastro_pnome(nome4)
+        
+        st.write('Cadastro:')
+        result_dataFrame = pd.read_sql("select * from cadastro where nome = '{}'".format(nome4) , cnxn)
+
+        st.write(result_dataFrame)
+
+        st.write('Anamnese:')
+        anamnese = pd.read_sql("SELECT Qual_O_Motivo_Da_Consulta,Tratamento_ou_Problema_de_Saude,Está_Tomando_Algum_Medicamento,Quais_Medicamentos,Tem_alergia_a_algum_medicamento, Apresenta_Alergia_a_Quais_Medicamentos,Teve_Alguma_Reação_a_Anestesia_Local,Quando_Foi_o_Seu_Ultimo_Tratamento_Odontologico,Tratamento_de_Canal_Protese_Implante_Perdeu_um_Dente,Sua_Gengiva_Sangra_Com_Frequência, Você_Fuma,Quando_Você_se_Corta_Sangra_Muito,Dores_de_Dente_Cabeça_Face_Ouvido_Articulações,Teve_Algum_Desmaio_Ataques_Nervoso_Epilepsia_ou_Convulsoes,Pode_Estar_Gravida,Procedimento_Facial_Botox_Preenchimento_Hialurônico_PMA FROM anamnese1 a join cadastro c on c.cpf = a.cpf where a.nome =  '{}'".format(nome4) , cnxn)
+        st.write(anamnese)
+
+        st.write('Sociais:')
+        sociais = pd.read_sql("SELECT Tem_Facebook,Tem_Instagram,Qual_instagram,Tem_filhos,como_se_chamam,Esta_Satisfeito_Com_Sua_Estética_Facil_e_de_Sorriso,Gosta_de_música_ambiente,Qual_Gênero_Ritmo_Gosta_de_Ouvir,Gosta_de_Futebol,Times_que_torce,Tem_algum_Hobby,Quais_hobbies,Tem_algum_animal_de_estimação,Qual_animal,Qual_Gênero_De_Filme_Gosta,Qual_sua_Profissão,Qual_Tipo_De_Programa_De_Televisão_Gosta_De_Assistir,Tem_medo_de_dentista FROM sociais s join cadastro c on s.cpf = c.cpf where c.nome = '{}'".format(nome4),cnxn)
+        st.write(sociais)
