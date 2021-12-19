@@ -6,11 +6,9 @@ from template.template_sociais import sociaistemp0,sociaistemp1
 
 
 import mysql.connector
-cnxn = mysql.connector.connect(host="sql10.freemysqlhosting.net", user="sql10459891", passwd="ZEVEuMyb52", db="sql10459891")
-cnxm = mysql.connector.connect(host="sql10.freemysqlhosting.net", user="sql10459891", passwd="ZEVEuMyb52", db="information_schema")
-
+cnxn = mysql.connector.connect(host=st.secrets["host"], user=st.secrets["user"], passwd= st.secrets["passwd"], db= st.secrets["db"])
 cursor = cnxn.cursor()
-cursorm = cnxm.cursor()
+
 #html and css
 
 #trocar o nome da pagina e o icone
@@ -90,19 +88,19 @@ def delete_sociais(nome):
 
 #Nomes das Colunas
 def get_coluna():
-	cursorm.execute("SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='sql10459891' AND TABLE_NAME='cadastro' ")
-	data = cursorm.fetchall()
+	cursor.execute("SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='sql10459891' AND TABLE_NAME='cadastro' ")
+	data = cursor.fetchall()
 	return data
 
 
 def get_coluna_a():
-	cursorm.execute("SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='sql10459891' AND TABLE_NAME='anamnese1' ")
-	data = cursorm.fetchall()
+	cursor.execute("SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='sql10459891' AND TABLE_NAME='anamnese1' ")
+	data = cursor.fetchall()
 	return data
 
 def get_coluna_s():
-	cursorm.execute("SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='sql10459891' AND TABLE_NAME='sociais' ")
-	data = cursorm.fetchall()
+	cursor.execute("SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='sql10459891' AND TABLE_NAME='sociais' ")
+	data = cursor.fetchall()
 	return data
 
 #Update
