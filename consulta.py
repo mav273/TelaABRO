@@ -148,9 +148,9 @@ def consulta():
 
 
 
-names = ["admin"]
-usernames = ["admin"]
-passwords = ["admin"]
+names = [st.secrets["nm"]]
+usernames = [st.secrets["us"]]
+passwords = [st.secrets["pwd"]]
 
 hashed_passwords = stauth.hasher(passwords).generate()
 
