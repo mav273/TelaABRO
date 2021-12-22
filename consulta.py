@@ -16,13 +16,6 @@ cursor = cnxn.cursor()
 #trocar o nome da pagina e o icone
 st.set_page_config(page_title = "ABRO - Odontologia Especializada", page_icon="favicon.ico")
 
-
-icon = """
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-"""
-
-st.markdown(icon, unsafe_allow_html=True)
 #remover o botão de Menu
 hide_st_style = """
             <style>
@@ -167,7 +160,7 @@ def main():
                         b_qalergia = i[6]
                         b_anestisia = i[7]
                         if b_anestisia=="Sim":
-                            st.warning("Apresenta Reação A Anestesia")
+                            st.warning("Apresenta Reação à Anestesia")
                         b_ultimo = i[8]
                         b_canal = i[9]
                         b_gengiva = i[10]
