@@ -3,12 +3,13 @@ from template.template_anamnese import anamnesetemp0,anamnesetemp1
 from template.template_sociais import sociaistemp0,sociaistemp1
 import streamlit_authenticator as stauth
 from template.template_cadastro import cadastro_temp
+import os
 
 #conexão com o banco
 
 
 import mysql.connector
-cnxn = mysql.connector.connect(host=st.secrets["host"], user=st.secrets["user"], passwd= st.secrets["passwd"], db= st.secrets["db"])
+cnxn = mysql.connector.connect(host=os.environ['host'], user=os.environ['user'], passwd= os.environ['passwd'], db= os.environ['db'])
 cursor = cnxn.cursor()
 
 
@@ -105,9 +106,9 @@ def consulta():
 
 #Login
 
-names = [st.secrets["nm"]]
-usernames = [st.secrets["us"]]
-passwords = [st.secrets["pwd"]]
+names = [os.environ['nm']]
+usernames = [os.environ['us']]
+passwords = [os.environ['pwd']]
 
 hashed_passwords = stauth.hasher(passwords).generate()
 
@@ -274,9 +275,9 @@ def main():
                 delete_sociais(delete_blog_by_title)
                 st.success('Paciente Deletado') 
     elif authentication_status == False:
-        st.error('Username/password está incorreta')
+        st.error('Nome de Usuário/Senha está incorreta')
     elif authentication_status == None:
-        st.warning('Por favor insira seu username e senha')
+        st.warning('Por favor, insira seu nome de usuário e senha')
 
 if __name__ == '__main__':
     main()
