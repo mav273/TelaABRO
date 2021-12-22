@@ -4,14 +4,13 @@ from template.template_sociais import sociaistemp0,sociaistemp1
 import streamlit_authenticator as stauth
 from template.template_cadastro import cadastro_temp
 
-#conexão
+#conexão com o banco
 
 
 import mysql.connector
 cnxn = mysql.connector.connect(host=st.secrets["host"], user=st.secrets["user"], passwd= st.secrets["passwd"], db= st.secrets["db"])
 cursor = cnxn.cursor()
 
-#html and css
 
 #trocar o nome da pagina e o icone
 st.set_page_config(page_title = "ABRO - Odontologia Especializada", page_icon="favicon.ico")
@@ -66,7 +65,7 @@ def get_coluna_s():
 	data = cursor.fetchall()
 	return data
 
-#Update
+#Alterar
 
 def update(coluna,novo,nome):
     cursor.execute("update cadastro set `{}` = '{}' where nome = '{}'".format(coluna,novo,nome))
@@ -80,7 +79,7 @@ def update_s(coluna,novo,nome):
     cursor.execute("update sociais set `{}` = '{}' where nome = '{}'".format(coluna,novo,nome))
     cnxn.commit()
 
-#fetchall()
+#Consultar os dados
 def cadastro_pnome(nome):
 	cursor.execute('SELECT * FROM cadastro WHERE nome="{}"'.format(nome))
 	data = cursor.fetchall()
@@ -105,7 +104,6 @@ def consulta():
     cursor.execute('Select * from cadastro')
     data = cursor.fetchall()
     return data
-#____________________________________________________________________________________________________________
 
 
 #Login
