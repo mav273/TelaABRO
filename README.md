@@ -1,6 +1,6 @@
 # TelaABRO
 
-Tela (CRUD) de gerenciamento de pacientes de um consultorio odontologico, aplicativo feito em python com uso da biblioteca streamlit e SQL.
+Tela (CRUD) de gerenciamento de pacientes de um consultório odontológico, aplicativo feito em python com uso da biblioteca streamlit e SQL.
 
 
 
